@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:solar_app/first_phase.dart';
-
+import 'calibration_page.dart';
 
 import 'location_page.dart';
 
@@ -60,6 +60,7 @@ class MainScreenWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            
 
             Expanded(child: Text(widgettext,overflow: TextOverflow.clip,style: TextStyle(fontSize: 20),)),
             Container(

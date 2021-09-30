@@ -32,6 +32,8 @@ dependencies:
   google_maps_flutter: ^2.0.9
   velocity_x: ^3.3.0
   sensors_plus: ^1.1.0
+  http: ^0.13.3
+  aeyrium_sensor: ^1.0.7
 
 dev_dependencies:
   flutter_test:

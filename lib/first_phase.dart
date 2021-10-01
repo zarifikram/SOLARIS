@@ -25,7 +25,7 @@ class FirstPhase extends StatelessWidget{
         ),),
       body: Column(
         children: [
-          TiltAngleShow(tiltAngle: 124.5,),
+          TiltAngleShow(tiltAngle: 50,),
           EnergyGainShow(
             dailyGain: [20, 23, 30, 50, 10, 50, 2, 5],
             monthlyGain: [56, 47, 10, 50, 10, 50, 12, 60,],

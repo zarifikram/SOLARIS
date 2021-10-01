@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:solar_app/first_phase.dart';
+import 'package:solar_app/home_page.dart';
 import 'package:solar_app/theme.dart';
 import "package:velocity_x/velocity_x.dart";
 import "package:sensors_plus/sensors_plus.dart";
@@ -71,6 +73,26 @@ class _CalibrationPageState extends State<CalibrationPage> {
               "-".text.extraBold.xl6.make(),
             ],
           ).box.height(500).make(),
+          Row(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    primary: Themes.lightOrangeColor,
+                  ),
+                  onPressed: (){Navigator.pop(context);},
+                  child: "Go back".text.make().pSymmetric(h:32, v:16),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    primary: Themes.lightOrangeColor,
+                  ),
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
+                  child: "Next".text.make().pSymmetric(h:32, v:16),
+                )
+              ],
+            )
         ],
       ),
     );

@@ -4,8 +4,10 @@ import 'package:flutter_compass/flutter_compass.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
-
+import 'entypo_icons.dart';
 import 'calibration_page.dart';
+import 'theme.dart';
+import "package:velocity_x/velocity_x.dart";
 
 class RotatePage extends StatefulWidget {
   final double tiltAngle;
@@ -19,7 +21,7 @@ class _RotatePageState extends State<RotatePage> {
   bool _hasPermissions = false;
   CompassEvent? _lastRead;
   DateTime? _lastReadAt;
-  late double _dir ;
+  late double _dir;
   final double tiltAngle;
 
   _RotatePageState(this.tiltAngle);
@@ -30,7 +32,6 @@ class _RotatePageState extends State<RotatePage> {
     // _fetchPermissionStatus();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,22 +39,45 @@ class _RotatePageState extends State<RotatePage> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
-        centerTitle : true,
+        centerTitle: true,
         title: SizedBox(
-          child: Text(
-              "SOLARIS",
-              style: GoogleFonts.righteous(textStyle: TextStyle(color: Color(0xFFFD8E03),fontWeight: FontWeight.bold,fontSize: 40) )
-          ),
+          child: Text("SOLARIS",
+              style: GoogleFonts.righteous(
+                  textStyle: TextStyle(
+                      color: Color(0xFFFD8E03),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40))),
         ),
       ),
-      body:Builder(builder: (context) {
+      body: Builder(builder: (context) {
         // if (_hasPermissions) {
-          return Column(
-            children: <Widget>[
-              _buildManualReader(),
-              Expanded(child: _buildCompass()),
-            ],
-          );
+        return Column(
+          children: <Widget>[
+            //  _buildManualReader(),
+            Expanded(child: _buildCompass()),
+
+            Row(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    primary: Themes.lightOrangeColor,
+                  ),
+                  onPressed: (){Navigator.pop(context);},
+                  child: "Go back".text.make().pSymmetric(h:32, v:16),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    primary: Themes.lightOrangeColor,
+                  ),
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>CalibrationPage(tiltAngle: tiltAngle)));},
+                  child: "Next".text.make().pSymmetric(h:32, v:16),
+                )
+              ],
+            )
+          ],
+        );
         // } else {
         //   return _buildPermissionSheet();
         // }
@@ -61,6 +85,7 @@ class _RotatePageState extends State<RotatePage> {
     );
   }
 
+/*
   Widget _buildManualReader() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -100,7 +125,7 @@ class _RotatePageState extends State<RotatePage> {
     );
   }
 
-
+*/
   Widget _buildCompass() {
     return StreamBuilder<CompassEvent>(
       stream: FlutterCompass.events,
@@ -128,15 +153,22 @@ class _RotatePageState extends State<RotatePage> {
           shape: CircleBorder(),
           clipBehavior: Clip.antiAlias,
           elevation: 4.0,
-          child: Container(
-            padding: EdgeInsets.all(16.0),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: Transform.rotate(
-              angle: (direction * (math.pi / 180) * -1),
-              child: Image.asset('images/compass.jpg'),
+          child: Expanded(
+            child: Container(
+              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+              ),
+              child: Transform.rotate(
+                angle: (direction * (math.pi / 180) * -1),
+                child: FittedBox(
+                    child: Icon(
+                  Entypo.down_circled,
+                  color: Color(0xFFFD8E03),
+                  size: 300,
+                )),
+              ),
             ),
           ),
         );

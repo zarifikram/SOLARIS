@@ -1,12 +1,12 @@
 # This is a generated file; do not edit or check into version control.
-flutter_compass=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_compass-0.7.0\\
-flutter_plugin_android_lifecycle=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-2.0.3\\
-google_maps_flutter=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\google_maps_flutter-2.0.9\\
-motion_sensors=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\motion_sensors-0.1.0\\
-path_provider=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-2.0.4\\
-path_provider_linux=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-2.1.0\\
-path_provider_macos=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-2.0.2\\
-path_provider_windows=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_windows-2.0.3\\
-permission_handler=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\permission_handler-8.1.6\\
-sensors_plus=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\sensors_plus-1.1.0\\
-sensors_plus_web=E:\\myStuff\\Flutter\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\sensors_plus_web-1.1.0\\
+flutter_compass=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_compass-0.7.0/
+flutter_plugin_android_lifecycle=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.3/
+google_maps_flutter=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-2.0.9/
+motion_sensors=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/motion_sensors-0.1.0/
+path_provider=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.4/
+path_provider_linux=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.0/
+path_provider_macos=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2/
+path_provider_windows=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/
+permission_handler=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-8.1.6/
+sensors_plus=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/sensors_plus-1.1.0/
+sensors_plus_web=/home/anas/development/flutter/.pub-cache/hosted/pub.dartlang.org/sensors_plus_web-1.1.0/

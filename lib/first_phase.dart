@@ -56,7 +56,7 @@ class _FirstPhaseState extends State<FirstPhase> {
                     monthlyGain: [56, 47, 10, 50, 10, 50, 12, 60,],
                   ),
                 ],
-              );Text(snapshot.data!.regularPowerPerSqmeter.toString());
+              );//Text(snapshot.data!.regularPowerPerSqmeter.toString());
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }

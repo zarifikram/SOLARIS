@@ -22,12 +22,12 @@ const FirstPhase({Key? key, required this.latLng}) : super(key: key);
   class _FirstPhaseState extends State<FirstPhase> {
       late Future<Info> futureInfo;
   late Info info ;
-  @override
+  /*@override
   void initState() {
     super.initState();
     futureInfo = info.fetchInfo(latLng);  // I want to send latLng to fetchInfo()
   }
-
+*/
 
   @override
   Widget build(BuildContext context) {

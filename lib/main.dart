@@ -3,8 +3,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'first_phase.dart';
 import 'home_page.dart';
 import 'location_page.dart';
+import 'package:flutter/services.dart';
 void main() {
+
+SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+  (_)
+{
   runApp(SolarApp());
+}
+);
+  
 }
 
 //0xfd8e03

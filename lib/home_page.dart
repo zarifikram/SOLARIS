@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:solar_app/first_phase.dart';
 import 'calibration_page.dart';
-
+import 'rotate_page.dart';
 import 'location_page.dart';
 
 class HomePage extends StatelessWidget{
@@ -33,7 +33,12 @@ class HomePage extends StatelessWidget{
               MaterialPageRoute(builder: (context) => LocationPage()),
             );
           }),
-          MainScreenWidget("I have Solaris Auto Tracking Panel",(){}),
+          MainScreenWidget("I have Solaris Auto Tracking Panel",(){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => RotatePage()),
+            );
+          }),
           MainScreenWidget("I want to adjust my solar panel manually",(){})
         ],
       ),

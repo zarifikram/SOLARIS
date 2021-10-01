@@ -33,6 +33,8 @@ dependencies:
   velocity_x: ^3.3.0
   sensors_plus: ^1.1.0
   http: ^0.13.3
+  flutter_compass: ^0.7.0
+  permission_handler: ^8.1.6
 
 dev_dependencies:
   flutter_test:

@@ -17,7 +17,7 @@ class Info{
 
   factory Info.fromJson(Map<String, dynamic> json) {
     return Info(
-      optimumPowerPerSqmeter: json['optimum_power_per_sqmeter'],
+      optimumPowerPerSqmeter: json['optimum_power_per_sqmeter'] as double,
       optimumTiltAngle: json['optimum_tilt_angle'] , 
       profitPercentage: json['profit_percentage'] , 
       regularPowerPerSqmeter: json['regular_power_per_sqmeter']

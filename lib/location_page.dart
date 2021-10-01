@@ -11,7 +11,7 @@ class LocationPage extends StatelessWidget {
   void _openDrawer() {
     _scaffoldKey.currentState!.openDrawer();
   }
-  var latLong = null;
+  var latLong = _kMapCenter;
   static final LatLng _kMapCenter =
     LatLng(19.018255973653343, 72.84793849278007);
 

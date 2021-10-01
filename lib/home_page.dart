@@ -1,51 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:solar_app/auto_tracking_page.dart';
 import 'package:solar_app/first_phase.dart';
 import 'calibration_page.dart';
 
 import 'location_page.dart';
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Colors.white,
-      appBar: AppBar( elevation: 0.0,
+      appBar: AppBar(
+        elevation: 0.0,
         backgroundColor: Colors.white,
-        centerTitle : true,
+        centerTitle: true,
         title: SizedBox(
-          child: Text(
-              "SOLARIS",
-              style: GoogleFonts.righteous(textStyle: TextStyle(color: Color(0xFFFD8E03),fontWeight: FontWeight.bold,fontSize: 40) )
-          ),
-        ),),
+          child: Text("SOLARIS",
+              style: GoogleFonts.righteous(
+                  textStyle: TextStyle(
+                      color: Color(0xFFFD8E03),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40))),
+        ),
+      ),
       body: Column(
         children: [
-          MainScreenWidget("I want to place a new solar panel",(){
+          MainScreenWidget("I want to place a new solar panel", () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => LocationPage()),
             );
           }),
-          MainScreenWidget("I have Solaris Auto Tracking Panel",(){}),
-          MainScreenWidget("I want to adjust my solar panel manually",(){})
+          MainScreenWidget("I have Solaris Auto Tracking Panel", () {
+             Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AutoTrackingPage()),
+            );
+          }),
+          MainScreenWidget("I want to adjust my solar panel manually", () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LocationPage()),
+            );
+          })
         ],
       ),
     );
   }
-
 }
 
 class MainScreenWidget extends StatelessWidget {
   final String widgettext;
-  final void Function () F ;
-  MainScreenWidget(this.widgettext, this.F );
+  final void Function() F;
+  MainScreenWidget(this.widgettext, this.F);
 
   @override
   Widget build(BuildContext context) {
@@ -55,19 +67,22 @@ class MainScreenWidget extends StatelessWidget {
         onPressed: F,
         style: ElevatedButton.styleFrom(
           primary: Color(0xFFFD8E03),
-          fixedSize: Size(double.infinity, 60),)
-        ,
+          fixedSize: Size(double.infinity, 60),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            
-
-            Expanded(child: Text(widgettext,overflow: TextOverflow.clip,style: TextStyle(fontSize: 20),)),
+            Expanded(
+                child: Text(
+              widgettext,
+              overflow: TextOverflow.clip,
+              style: TextStyle(fontSize: 20),
+            )),
             Container(
               height: 30,
               width: 30,
               decoration: BoxDecoration(
-                color:Color(0xFFB95222),
+                color: Color(0xFFB95222),
                 borderRadius: BorderRadius.circular(50 / 2),
               ),
               child: Center(

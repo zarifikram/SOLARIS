@@ -60,7 +60,7 @@ class _CalibrationPageState extends State<CalibrationPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          "Place the bubble to the center by tilting your panel.".text.extraBold.xl3.color(Themes.darkOrangeColor).center.make().p16(),
+          "Place the bubble to the center by tilting your panel.".text.extraBold.xl3.color(Themes.darkOrangeColor).center.make().p8(),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +72,7 @@ class _CalibrationPageState extends State<CalibrationPage> {
               ),
               "-".text.extraBold.xl6.make(),
             ],
-          ).box.height(500).make(),
+          ).box.height(400).make(),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

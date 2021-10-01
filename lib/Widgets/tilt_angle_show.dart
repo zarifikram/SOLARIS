@@ -19,7 +19,7 @@ class TiltAngleShow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               "Optimum tilt angle".text.white.xl.make(),
-              (tiltAngle.toString()+"°").text.white.xl3.bold.make(),
+              (tiltAngle.toStringAsFixed(2)+"°").text.white.xl3.bold.make(),
             ],
           ),
           InkWell(

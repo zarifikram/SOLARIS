@@ -11,21 +11,24 @@ import 'Widgets/tilt_angle_show.dart';
 
 class FirstPhase extends StatefulWidget {
   final LatLng latLng;
-const FirstPhase({Key? key, required this.latLng}) : super(key: key);
+  const FirstPhase({Key? key, required this.latLng}) : super(key: key);
   
   
   @override
-  _FirstPhaseState createState() => _FirstPhaseState();
+  _FirstPhaseState createState() => _FirstPhaseState(latLng);
   
 }
   
-  class _FirstPhaseState extends State<FirstPhase> {
-      late Future<Info> futureInfo;
-  late Info info ;
+class _FirstPhaseState extends State<FirstPhase> {
+  final LatLng latLng;
+  late Future<Info> futureInfo;
+  late Info info;
+
+  _FirstPhaseState(this.latLng);
   @override
   void initState() {
     super.initState();
-    futureInfo = info.fetchInfo(latLng);  // I want to send latLng to fetchInfo()
+    futureInfo = Info.fetchInfo(latLng);  // I want to send latLng to fetchInfo()
   }
 
 
@@ -41,26 +44,25 @@ const FirstPhase({Key? key, required this.latLng}) : super(key: key);
               style: GoogleFonts.righteous(textStyle: TextStyle(color: Color(0xFFFD8E03),fontWeight: FontWeight.bold,fontSize: 40) )
           ),
         ),),
-      body: Column(
-        children: [
-          FutureBuilder<Info>(
-  future: futureInfo,
-  builder: (context, snapshot) {
-    if (snapshot.hasData) {
-      return Text(snapshot.data!.regularPowerPerSqmeter.toString());
-    } else if (snapshot.hasError) {
-      return Text('${snapshot.error}');
-    }
-    return const CircularProgressIndicator();
-  },
-),
-      //    TiltAngleShow(tiltAngle: ),
-          EnergyGainShow(
-            dailyGain: [20, 23, 30, 50, 10, 50, 2, 5],
-            monthlyGain: [56, 47, 10, 50, 10, 50, 12, 60,],
-          ),
-        ],
-      )
+        body:  FutureBuilder<Info>(
+          future: futureInfo,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Column(
+                children: [
+                  TiltAngleShow(tiltAngle: snapshot.data!.optimumTiltAngle),
+                  EnergyGainShow(
+                    dailyGain: [20, 23, 30, 50, 10, 50, 2, 5],
+                    monthlyGain: [56, 47, 10, 50, 10, 50, 12, 60,],
+                  ),
+                ],
+              );Text(snapshot.data!.regularPowerPerSqmeter.toString());
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+            return const CircularProgressIndicator();
+          },
+        ),
     );
   }
 

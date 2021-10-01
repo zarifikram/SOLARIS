@@ -40,7 +40,18 @@ class LocationPage extends StatelessWidget {
               myLocationButtonEnabled: true,
               onTap: (LatLan)=>latLong = LatLan,
               initialCameraPosition: _kInitialPosition,
-            ).box.size(400,500).make().p32(),
+              markers: Set<Marker>.of(
+          <Marker>[Marker(
+          onTap: () {
+            print('Tapped');
+          },
+          draggable: true,
+          markerId: MarkerId('Marker'),
+          position: LatLng(19.018255973653343, 72.84793849278007),
+          onDragEnd: ((newPosition) {
+            latLong = newPosition ;
+          }))]),
+            ).box.size(400,400).make().p32(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

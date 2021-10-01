@@ -33,6 +33,7 @@ dependencies:
   velocity_x: ^3.3.0
   sensors_plus: ^1.1.0
   http: ^0.13.3
+  motion_sensors: ^0.1.0
 
 dev_dependencies:
   flutter_test:

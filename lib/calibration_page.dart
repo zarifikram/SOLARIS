@@ -1,51 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import "package:velocity_x/velocity_x.dart";
-//import "package:sensors_plus/sensors_plus.dart";
-//import 'package:aeyrium_sensor/aeyrium_sensor.dart';
-//import 'dart:async';
+import 'package:solar_app/theme.dart';
+import "package:velocity_x/velocity_x.dart";
+import "package:sensors_plus/sensors_plus.dart";
+import 'dart:async';
+import 'package:motion_sensors/motion_sensors.dart';
+import 'package:flutter/material.dart';
+import 'package:vector_math/vector_math_64.dart' hide Colors;
+
 class CalibrationPage extends StatefulWidget{
   final double tiltAngle;
-  
+
   const CalibrationPage({Key? key, required this.tiltAngle }) : super(key: key);
 
   @override
-  State<CalibrationPage> createState() => _CalibrationPageState();
+  State<CalibrationPage> createState() => _CalibrationPageState(tiltAngle);
 }
 
 
 class _CalibrationPageState extends State<CalibrationPage> {
-  late int x,y,z;
-  String _data = "";
-/*
-  StreamSubscription<dynamic>  _streamSubscriptions;
+  Vector3 _absoluteOrientation = Vector3.zero();
+  final double tiltAngle;
 
+  int? _groupValue = 0;
+
+  _CalibrationPageState(this.tiltAngle);
   @override
   void initState() {
-    _streamSubscriptions = AeyriumSensor.sensorEvents.listen((event) {
+    super.initState();
+    motionSensors.absoluteOrientation.listen((AbsoluteOrientationEvent event) {
       setState(() {
-        _data = "Pitch ${event.pitch} , Roll ${event.roll}";
+        _absoluteOrientation.setValues(event.yaw, event.pitch, event.roll);
       });
     });
-    super.initState();
   }
 
-  @override
-  void dispose() {
-    if (_streamSubscriptions != null) {
-      _streamSubscriptions.cancel();
-    }
-    super.dispose();
+  void setUpdateInterval(int? groupValue, int interval) {
+    motionSensors.orientationUpdateInterval = interval;
+    motionSensors.absoluteOrientationUpdateInterval = interval;
+    setState(() {
+      _groupValue = groupValue;
+    });
   }
 
-*/
-//  @override
-//  void initState() {
-//    accelerometerEvents.listen((event) {
-
-//    });
-//    super.initState();
-  //}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,14 +55,24 @@ class _CalibrationPageState extends State<CalibrationPage> {
               style: GoogleFonts.righteous(textStyle: TextStyle(color: Color(0xFFFD8E03),fontWeight: FontWeight.bold,fontSize: 40) )
           ),
         ),),
-     // body: Text('Device : $_data'),
-      /*Row(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          x.text.make(),
-          y.text.make(),
-          z.text.make(),
+          "Place the bubble to the center by tilting your panel.".text.extraBold.xl3.color(Themes.darkOrangeColor).center.make().p16(),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              "-".text.extraBold.xl6.make(),
+              Transform.translate(
+                offset: Offset(0, - 4*(90-tiltAngle) + 4*degrees(_absoluteOrientation.y)),
+                child: CircleAvatar(foregroundColor: Themes.darkOrangeColor,radius: 20,),
+              ),
+              "-".text.extraBold.xl6.make(),
+            ],
+          ).box.height(500).make(),
         ],
-      ),*/
+      ),
     );
   }
 }

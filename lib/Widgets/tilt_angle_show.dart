@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import "package:velocity_x/velocity_x.dart";
 
 import '../calibration_page.dart';
+import '../rotate_page.dart';
 import '../theme.dart';
 
 class TiltAngleShow extends StatelessWidget {
@@ -24,7 +25,8 @@ class TiltAngleShow extends StatelessWidget {
           ),
           InkWell(
             child: Icon(Icons.remove_red_eye_outlined, color: Colors.white,size:36).box.roundedFull.color(Themes.darkOrangeColor).p8.make(),
-            onTap: ()=>Navigator.push(context, MaterialPageRoute(builder:(context)=>CalibrationPage(tiltAngle:tiltAngle))),
+
+            onTap: ()=>Navigator.push(context, MaterialPageRoute(builder:(context)=>RotatePage(tiltAngle:tiltAngle))),
           ),
         ],
       ),

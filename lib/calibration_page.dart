@@ -65,7 +65,7 @@ class _CalibrationPageState extends State<CalibrationPage> {
             children: [
               "-".text.extraBold.xl6.make(),
               Transform.translate(
-                offset: Offset(0, - 4*(90-tiltAngle) + 4*degrees(_absoluteOrientation.y)),
+                offset: Offset(0, - 4*(tiltAngle) + 4*(degrees(_absoluteOrientation.y))),
                 child: CircleAvatar(foregroundColor: Themes.darkOrangeColor,radius: 20,),
               ),
               "-".text.extraBold.xl6.make(),

@@ -108,7 +108,7 @@ class _RotatePageState extends State<RotatePage> {
         return Transform.rotate(
           angle: (direction * (math.pi / 180) * -1),
           child: Icon(
-            Icons.arrow_circle_up,
+            Icons.arrow_circle_down,
             color: Color(0xFFFD8E03),
             size: 300,
           ),

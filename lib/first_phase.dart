@@ -9,21 +9,11 @@ import 'dart:convert';
 import 'Widgets/energy_gain_show.dart';
 import 'Widgets/tilt_angle_show.dart';
 
-
 class FirstPhase extends StatefulWidget {
   final LatLng latLng;
 const FirstPhase({Key? key, required this.latLng}) : super(key: key);
   
-  Future<Info> fetchInfo() async {
-  final response = await http
-      .get(Uri.parse('rafeedbhuiyan17.pythonanywhere.com/api/temporal/daily/optimum?latitude=${latLng.latitude}&longitude=${latLng.longitude}'));
-
-  if (response.statusCode == 200) {
-    return Info.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to load album');
-  }
-}
+  
   @override
   _FirstPhaseState createState() => _FirstPhaseState();
   
@@ -31,11 +21,11 @@ const FirstPhase({Key? key, required this.latLng}) : super(key: key);
   
   class _FirstPhaseState extends State<FirstPhase> {
       late Future<Info> futureInfo;
-
+  late Info info ;
   @override
   void initState() {
     super.initState();
-    futureInfo = fetchInfo();
+    futureInfo = info.fetchInfo(latLng);  // I want to send latLng to fetchInfo()
   }
 
 
@@ -53,7 +43,18 @@ const FirstPhase({Key? key, required this.latLng}) : super(key: key);
         ),),
       body: Column(
         children: [
-          TiltAngleShow(tiltAngle: 124.5,),
+          FutureBuilder<Info>(
+  future: futureInfo,
+  builder: (context, snapshot) {
+    if (snapshot.hasData) {
+      return Text(snapshot.data!.regularPowerPerSqmeter.toString());
+    } else if (snapshot.hasError) {
+      return Text('${snapshot.error}');
+    }
+    return const CircularProgressIndicator();
+  },
+),
+      //    TiltAngleShow(tiltAngle: ),
           EnergyGainShow(
             dailyGain: [20, 23, 30, 50, 10, 50, 2, 5],
             monthlyGain: [56, 47, 10, 50, 10, 50, 12, 60,],
@@ -64,4 +65,3 @@ const FirstPhase({Key? key, required this.latLng}) : super(key: key);
   }
 
 }
-

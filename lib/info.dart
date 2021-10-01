@@ -1,3 +1,4 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 class Info{
@@ -23,9 +24,9 @@ class Info{
     );
   }
 
-  Future<Info> fetchInfo() async {
+  Future<Info> fetchInfo(LatLng latLng) async {
   final response = await http
-      .get(Uri.parse('rafeedbhuiyan17.pythonanywhere.com/api/temporal/daily/optimum?latitude=23.8103&longitude=90.4125'));
+      .get(Uri.parse('rafeedbhuiyan17.pythonanywhere.com/api/temporal/daily/optimum?latitude=${latLng.latitude}&longitude=${latLng.longitude}'));
 
   if (response.statusCode == 200) {
     return Info.fromJson(jsonDecode(response.body));

@@ -4,7 +4,7 @@ import 'package:flutter_compass/flutter_compass.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'entypo_icons.dart';
+
 import 'calibration_page.dart';
 import 'theme.dart';
 import "package:velocity_x/velocity_x.dart";
@@ -57,6 +57,7 @@ class _RotatePageState extends State<RotatePage> {
             Expanded(child: _buildCompass()),
 
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -75,57 +76,12 @@ class _RotatePageState extends State<RotatePage> {
                   child: "Next".text.make().pSymmetric(h:32, v:16),
                 )
               ],
-            )
+            ).p16(),
           ],
         );
-        // } else {
-        //   return _buildPermissionSheet();
-        // }
       }),
     );
   }
-
-/*
-  Widget _buildManualReader() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        children: <Widget>[
-          ElevatedButton(
-            child: Text('Read Value'),
-            onPressed: ()  {
-              // final CompassEvent tmp = await FlutterCompass.events!.first;
-              // setState(() {
-              //   _lastRead = tmp;
-              //   _lastReadAt = DateTime.now();
-              // });
-              Navigator.push(context, MaterialPageRoute(builder:(context)=>CalibrationPage(tiltAngle:tiltAngle)));
-            },
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    '$_lastRead',
-                    style: Theme.of(context).textTheme.caption,
-                  ),
-                  Text(
-                    '$_lastReadAt',
-                    style: Theme.of(context).textTheme.caption,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-*/
   Widget _buildCompass() {
     return StreamBuilder<CompassEvent>(
       stream: FlutterCompass.events,
@@ -149,66 +105,16 @@ class _RotatePageState extends State<RotatePage> {
             child: Text("Device does not have sensors !"),
           );
 
-        return Material(
-          shape: CircleBorder(),
-          clipBehavior: Clip.antiAlias,
-          elevation: 4.0,
-          child: Expanded(
-            child: Container(
-              padding: EdgeInsets.all(16.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
-              child: Transform.rotate(
-                angle: (direction * (math.pi / 180) * -1),
-                child: FittedBox(
-                    child: Icon(
-                  Entypo.down_circled,
-                  color: Color(0xFFFD8E03),
-                  size: 300,
-                )),
-              ),
-            ),
+        return Transform.rotate(
+          angle: (direction * (math.pi / 180) * -1),
+          child: Icon(
+            Icons.arrow_circle_up,
+            color: Color(0xFFFD8E03),
+            size: 300,
           ),
-        );
+        ).box.neumorphic(color:Vx.white, curve: VxCurve.concave, elevation: 10).p24.roundedFull.make();
       },
     );
   }
 
-  // Widget _buildPermissionSheet() {
-  //   return Center(
-  //     child: Column(
-  //       mainAxisSize: MainAxisSize.min,
-  //       children: <Widget>[
-  //         Text('Location Permission Required'),
-  //         ElevatedButton(
-  //           child: Text('Request Permissions'),
-  //           onPressed: () {
-  //             Permission.locationWhenInUse.request().then((ignored) {
-  //               _fetchPermissionStatus();
-  //             });
-  //           },
-  //         ),
-  //         SizedBox(height: 16),
-  //         ElevatedButton(
-  //           child: Text('Open App Settings'),
-  //           onPressed: () {
-  //             openAppSettings().then((opened) {
-  //               //
-  //             });
-  //           },
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
-  //
-  // void _fetchPermissionStatus() {
-  //   Permission.locationWhenInUse.status.then((status) {
-  //     if (mounted) {
-  //       setState(() => _hasPermissions = status == PermissionStatus.granted);
-  //     }
-  //   });
-  // }
 }

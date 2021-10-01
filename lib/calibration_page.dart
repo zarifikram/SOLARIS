@@ -74,6 +74,7 @@ class _CalibrationPageState extends State<CalibrationPage> {
             ],
           ).box.height(500).make(),
           Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -92,7 +93,7 @@ class _CalibrationPageState extends State<CalibrationPage> {
                   child: "Next".text.make().pSymmetric(h:32, v:16),
                 )
               ],
-            )
+            ).p16(),
         ],
       ),
     );

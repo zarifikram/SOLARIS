@@ -41,3 +41,17 @@ This Page will guide you to set up your panel with optimum tilt angle .
 You should place the phone parallel to the panel . 
 
 You must make the ball between the two lines .
+
+### Resources
+---
+Solaris web app : [Solaris web homepage](https://solaris-bd.web.app/)
+Solaris web app repo : [Github repo for Solaris web app](https://github.com/SalmanSayeed79/Solaris-BD)
+Solaris Mobile app : [Github repo for solaris mobile app](https://github.com/zarifikram/SOLARIS)
+Solaris IOT module : [Github repo for Solaris IOT code]()
+
+### Reference
+---
+NASA POWER API Homepage : [NASA POWER API](https://power.larc.nasa.gov/)
+Google Maps API : [Google Maps homepage](https://developers.google.com/maps)
+Flutter : [Flutter homepage](https://developers.google.com/maps)
+Firebase : [Firebase homepage](https://firebase.google.com/)

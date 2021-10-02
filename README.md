@@ -1,7 +1,6 @@
 
 # Solaris
-
-[![244326655-332221555363473-4636031536199997176-n.jpg](https://i.postimg.cc/pLmcczpd/244326655-332221555363473-4636031536199997176-n.jpg)](https://postimg.cc/Mn8Yvc0k)
+[![Cover.png](https://i.postimg.cc/j2CPY2Sh/Cover.png)](https://postimg.cc/QKGHpX5B)
 Solaris Mobile App is used for manually tilting solar panels according to the user location and their date time. We use the <b>Gyroscope</b> and the <b>Magnetometer</b> sensors of the device to detect the proper tilt.
 
 You can download the app here [Apk drive link](https://drive.google.com/file/d/170HMrigXFpZwzHW3F4FIAJt-gC9HfU5Z/view?usp=sharing)

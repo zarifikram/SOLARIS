@@ -53,11 +53,11 @@ The home page has 3 options
 [![5.png](https://i.postimg.cc/7ZrLftqS/5.png)](https://postimg.cc/RNGmYR60)
 ### Resources
 ---
-Solaris web app : [Solaris web homepage](https://solaris-bd.web.app/)
-Solaris web app repo : [Github repo for Solaris web app](https://github.com/SalmanSayeed79/Solaris-BD)
-Solaris Mobile app : [Apk drive link](https://drive.google.com/file/d/170HMrigXFpZwzHW3F4FIAJt-gC9HfU5Z/view?usp=sharing)
-Solaris Mobile app repo: [Github repo for solaris mobile app](https://github.com/zarifikram/SOLARIS)
-Solaris IOT module : [Github repo for Solaris IOT code](https://github.com/pptx704/solaris-servo-control)
+* Solaris web app : [Solaris web homepage](https://solaris-bd.web.app/)
+* Solaris web app repo : [Github repo for Solaris web app](https://github.com/SalmanSayeed79/Solaris-BD)
+* Solaris Mobile app : [Apk drive link](https://drive.google.com/file/d/170HMrigXFpZwzHW3F4FIAJt-gC9HfU5Z/view?usp=sharing)
+* Solaris Mobile app repo: [Github repo for solaris mobile app](https://github.com/zarifikram/SOLARIS)
+* Solaris IOT module : [Github repo for Solaris IOT code](https://github.com/pptx704/solaris-servo-control)
 
 ### Reference
 ---
